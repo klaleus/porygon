@@ -1,0 +1,3 @@
+set(PORYGON_LIBRARY_TYPE STATIC CACHE STRING "cmake library type")
+
+set(PORYGON_INSTALL ${PORYGON_STANDALONE} CACHE BOOL "enable `make install`")

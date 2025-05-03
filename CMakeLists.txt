@@ -74,8 +74,8 @@ target_link_libraries(
 target_compile_definitions(
     porygon
     INTERFACE
-    "$<BUILD_INTERFACE:PORYGON_ASSETS=${CMAKE_CURRENT_LIST_DIR}/assets>"
-    "$<INSTALL_INTERFACE:PORYGON_ASSETS=${CMAKE_INSTALL_DATADIR}/porygon/assets>"
+    $<BUILD_INTERFACE:PORYGON_ASSETS=\"${CMAKE_CURRENT_LIST_DIR}/assets\">
+    $<INSTALL_INTERFACE:PORYGON_ASSETS=\"${CMAKE_INSTALL_DATADIR}/porygon/assets\">
 )
 
 ################################################################################
@@ -109,12 +109,11 @@ if(PORYGON_INSTALL)
 
     install(
         DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/assets"
-        DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/porygon"
+        DESTINATION "${CMAKE_INSTALL_DATADIR}/porygon"
     )
 
     install(
         EXPORT PorygonTargets
-        FILE PorygonTargets.cmake
         NAMESPACE klaleus::
         DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/porygon"
     )

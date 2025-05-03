@@ -21,7 +21,6 @@ typedef struct PorygonBuffer
     PorygonBufferType type;
     int capacity;
     int binding;
-    int active;
 }
 PorygonBuffer;
 
@@ -33,8 +32,6 @@ PorygonBuffer porygon_buffer_create(PorygonBufferType type, int capacity, int bi
 void porygon_buffer_destroy(const PorygonBuffer* buffer);
 
 void porygon_buffer_activate(PorygonBuffer* buffer);
-void porygon_buffer_deactivate(PorygonBuffer* buffer);
-
 void porygon_buffer_edit(const PorygonBuffer* buffer, const void* data, int size, int offset);
 
 #endif // PORYGON_BUFFER_GUARD

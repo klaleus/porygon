@@ -40,8 +40,6 @@ void porygon_buffer_destroy(const PorygonBuffer* buffer)
 
 void porygon_buffer_activate(PorygonBuffer* buffer)
 {
-    buffer->active = 1;
-
     switch (buffer->type)
     {
         case PORYGON_BUFFER_TYPE_VERTEX:
@@ -62,34 +60,6 @@ void porygon_buffer_activate(PorygonBuffer* buffer)
 
         case PORYGON_BUFFER_TYPE_SHADER_STORAGE:
         glBindBufferBase(GL_SHADER_STORAGE_BUFFER, buffer->binding, buffer->glfw_handle);
-        break;
-    }
-}
-
-void porygon_buffer_deactivate(PorygonBuffer* buffer)
-{
-    buffer->active = 0;
-
-    switch (buffer->type)
-    {
-        case PORYGON_BUFFER_TYPE_VERTEX:
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
-        break;
-
-        case PORYGON_BUFFER_TYPE_INDEX:
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-        break;
-
-        case PORYGON_BUFFER_TYPE_INDIRECT:
-        glBindBuffer(GL_DRAW_INDIRECT_BUFFER, 0);
-        break;
-
-        case PORYGON_BUFFER_TYPE_UNIFORM:
-        glBindBufferBase(GL_UNIFORM_BUFFER, buffer->binding, 0);
-        break;
-
-        case PORYGON_BUFFER_TYPE_SHADER_STORAGE:
-        glBindBufferBase(GL_SHADER_STORAGE_BUFFER, buffer->binding, 0);
         break;
     }
 }

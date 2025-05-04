@@ -43,11 +43,11 @@ void porygon_buffer_activate(PorygonBuffer* buffer)
     switch (buffer->type)
     {
         case PORYGON_BUFFER_TYPE_VERTEX:
-        glBindBuffer(GL_ARRAY_BUFFER, buffer->glfw_handle);
+        chatot_chatter(CHATOT_SEVERITY_FATAL, "Failed to activate buffer. Vertex buffers should be attached to a format, then that format should be activated with `porygon_format_activate()`.");
         break;
 
         case PORYGON_BUFFER_TYPE_INDEX:
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffer->glfw_handle);
+        chatot_chatter(CHATOT_SEVERITY_FATAL, "Failed to activate buffer. Index buffers should be attached to a format, then that format should be activated with `porygon_format_activate()`.");
         break;
 
         case PORYGON_BUFFER_TYPE_INDIRECT:

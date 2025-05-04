@@ -49,6 +49,7 @@ add_library(
     porygon
     ${PORYGON_LIBRARY_TYPE}
     "${CMAKE_CURRENT_LIST_DIR}/src/buffer.c"
+    "${CMAKE_CURRENT_LIST_DIR}/src/format.c"
     "${CMAKE_CURRENT_LIST_DIR}/src/framework.c"
     "${CMAKE_CURRENT_LIST_DIR}/src/vector.c"
     "${CMAKE_CURRENT_LIST_DIR}/src/window.c"

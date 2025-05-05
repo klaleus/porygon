@@ -16,6 +16,49 @@ int porygon_vector_equals(PorygonVector left, PorygonVector right)
     return result;
 }
 
+PorygonVector porygon_vector_clamp(PorygonVector vector, PorygonVector min, PorygonVector max)
+{
+    if (vector.x < min.x)
+    {
+        vector.x = min.x;
+    }
+    else if (vector.x > max.x)
+    {
+        vector.x = max.x;
+    }
+
+    if (vector.y < min.y)
+    {
+        vector.y = min.y;
+    }
+    else if (vector.y > max.y)
+    {
+        vector.y = max.y;
+    }
+
+    if (vector.z < min.z)
+    {
+        vector.z = min.z;
+    }
+    else if (vector.z > max.z)
+    {
+        vector.z = max.z;
+    }
+
+    return vector;
+}
+
+PorygonVector porygon_vector_wrap(PorygonVector vector, PorygonVector min, PorygonVector max)
+{
+    PorygonVector result =
+    {
+        min.x + fmodf(vector.x - min.x, max.x - min.x),
+        min.y + fmodf(vector.y - min.y, max.y - min.y),
+        min.z + fmodf(vector.z - min.z, max.z - min.z)
+    };
+    return result;
+}
+
 PorygonVector porygon_vector_add(PorygonVector left, PorygonVector right)
 {
     PorygonVector result =
@@ -111,5 +154,41 @@ float porygon_vector_distance(PorygonVector left, PorygonVector right)
 
 PorygonVector porygon_vector_rotate(PorygonVector vector, PorygonVector rotation)
 {
-    // todo
+    if (rotation.x)
+    {
+        float pitch_sin = sinf(rotation.x);
+        float pitch_cos = cosf(rotation.x);
+        vector = (PorygonVector)
+        {
+            vector.x,
+            vector.y * pitch_cos - vector.z * pitch_sin,
+            vector.y * pitch_sin + vector.z * pitch_cos
+        };
+    }
+
+    if (rotation.y)
+    {
+        float yaw_sin = sinf(rotation.y);
+        float yaw_cos = cosf(rotation.y);
+        vector = (PorygonVector)
+        {
+            vector.x * yaw_cos + vector.z * yaw_sin,
+            vector.y,
+            vector.z * yaw_cos - vector.x * yaw_sin
+        };
+    }
+
+    if (rotation.z)
+    {
+        float roll_sin = sinf(rotation.z);
+        float roll_cos = cosf(rotation.z);
+        vector = (PorygonVector)
+        {
+            vector.x * roll_cos - vector.y * roll_sin,
+            vector.x * roll_sin + vector.y * roll_cos,
+            vector.z
+        };
+    }
+
+    return vector;
 }

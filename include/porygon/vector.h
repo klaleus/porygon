@@ -18,6 +18,8 @@ PorygonVector;
 ////////////////////////////////////////////////////////////////////////////////
 
 int           porygon_vector_equals     (PorygonVector left, PorygonVector right);
+PorygonVector porygon_vector_clamp      (PorygonVector vector, PorygonVector min, PorygonVector max);
+PorygonVector porygon_vector_wrap       (PorygonVector vector, PorygonVector min, PorygonVector max);
 PorygonVector porygon_vector_add        (PorygonVector left, PorygonVector right);
 PorygonVector porygon_vector_subtract   (PorygonVector left, PorygonVector right);
 PorygonVector porygon_vector_multiply   (PorygonVector left, PorygonVector right);

@@ -10,6 +10,7 @@
 #include <porygon/format.h>
 #include <porygon/framework.h>
 #include <porygon/handle.h>
+#include <porygon/shader.h>
 #include <porygon/vector.h>
 #include <porygon/window.h>
 

@@ -7,6 +7,7 @@
 
 #include <porygon/buffer.h>
 #include <porygon/color.h>
+#include <porygon/format.h>
 #include <porygon/framework.h>
 #include <porygon/handle.h>
 #include <porygon/vector.h>

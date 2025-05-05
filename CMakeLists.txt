@@ -51,6 +51,7 @@ add_library(
     "${CMAKE_CURRENT_LIST_DIR}/src/buffer.c"
     "${CMAKE_CURRENT_LIST_DIR}/src/format.c"
     "${CMAKE_CURRENT_LIST_DIR}/src/framework.c"
+    "${CMAKE_CURRENT_LIST_DIR}/src/shader.c"
     "${CMAKE_CURRENT_LIST_DIR}/src/vector.c"
     "${CMAKE_CURRENT_LIST_DIR}/src/window.c"
     $<TARGET_OBJECTS:chatot>

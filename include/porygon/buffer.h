@@ -17,7 +17,7 @@ PorygonBufferType;
 
 typedef struct PorygonBuffer
 {
-    int glfw_handle;
+    int gl_handle;
     PorygonBufferType type;
     int capacity;
     int binding;
@@ -28,10 +28,10 @@ PorygonBuffer;
 // Functions
 ////////////////////////////////////////////////////////////////////////////////
 
-PorygonBuffer porygon_buffer_create(PorygonBufferType type, int capacity, int binding);
-void porygon_buffer_destroy(const PorygonBuffer* buffer);
+PorygonBuffer porygon_buffer_create   (PorygonBufferType type, int capacity, int binding);
+void          porygon_buffer_destroy  (const PorygonBuffer* buffer);
 
-void porygon_buffer_activate(PorygonBuffer* buffer);
-void porygon_buffer_edit(const PorygonBuffer* buffer, const void* data, int size, int offset);
+void          porygon_buffer_activate (const PorygonBuffer* buffer);
+void          porygon_buffer_edit     (const PorygonBuffer* buffer, const void* data, int size, int offset);
 
 #endif // PORYGON_BUFFER_GUARD

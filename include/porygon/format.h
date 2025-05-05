@@ -17,7 +17,7 @@ PorygonFormatAttribute;
 
 typedef struct PorygonFormat
 {
-    int glfw_handle;
+    int gl_handle;
     int attributes[PORYGON_FORMAT_ATTRIBUTE_COUNT];
     int attribute_offsets[PORYGON_FORMAT_ATTRIBUTE_COUNT];
     int attribute_count;
@@ -29,12 +29,11 @@ PorygonFormat;
 // Functions
 ////////////////////////////////////////////////////////////////////////////////
 
-PorygonFormat porygon_format_create(const PorygonFormatAttribute* attributes, int attribute_count);
-void porygon_format_destroy(const PorygonFormat* format);
+PorygonFormat porygon_format_create        (const PorygonFormatAttribute* attributes, int attribute_count);
+void          porygon_format_destroy       (const PorygonFormat* format);
 
-void porygon_format_activate(const PorygonFormat* format);
-
-void porygon_format_vertex_buffer(const PorygonFormat* format, const PorygonBuffer* buffer);
-void porygon_format_index_buffer(const PorygonFormat* format, const PorygonBuffer* buffer);
+void          porygon_format_activate      (const PorygonFormat* format);
+void          porygon_format_vertex_buffer (const PorygonFormat* format, const PorygonBuffer* buffer);
+void          porygon_format_index_buffer  (const PorygonFormat* format, const PorygonBuffer* buffer);
 
 #endif // PORYGON_FORMAT_GUARD
